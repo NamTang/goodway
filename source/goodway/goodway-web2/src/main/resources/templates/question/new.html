@@ -33,85 +33,18 @@
                 manualRowResize: true,
                 contextMenu: true,
                 columns: [
-                	{data: 'id'},
-                    {data: 'name'},
-                    {data: 'description'},
-                    {data: 'height'},
-                    {data: 'width'},
-                    {data: 'length'},
-                    {data: 'weight'},
+                	{data: 'category'},
+                    {data: 'question_name'},
+                    {data: 'ask_person'},
+                    {data: 'ask_date'},
+                    {data: 'answer'},
+                    {data: 'respondent'},
+                    {data: 'day_responded'},
                     {data: 'status'}
                   ]
               });
         });
 	
-
-        /**
-         * @param vehicleId: -1 means loading all
-         */
-        function loadQuestions(productId) {
-            var url;
-
-            
-            if (productId === undefined) {
-                url = _ctx + 'product/load-product';
-            } else {
-                url = _ctx + 'product/load-product?id=' + productId;
-            }
-
-            $.ajax({
-                url : url,
-                type : 'GET',
-                dataType : 'json',
-                contentType : 'application/json',
-                success : function(res) {
-                    // Update data into the handsontable
-                    dataQuestions = res;
-                    hotQuestion.loadData(dataQuestions);
-                },
-                error : function (e) {
-                    console.log("Error: " + e);
-                }
-            });
-        }
-    </script>
-    
-    <script>
-        $('#frmHot').submit(function(e) {
-            e.preventDefault();
-    
-            var frm = $('#frmHot');
-            var selectPoolId = $('#poolId').val();
-            var frmData = new FormData(this);
-    
-            // Get header name
-            var colHeaderData =  hotQuestion.getColHeader();
-            
-            // Get data from Handsontable
-            var tableData = hotQuestion.getData();
-
-            var frmData = {};
-            frmData["header"] = colHeaderData;
-            frmData["data"] = tableData;
-
-            $.ajax({
-                url : _ctx + "product/save",
-                type : "POST",
-                contentType: "application/json",
-                data: JSON.stringify(frmData),
-                dataType: 'json',
-
-                success : function(result) {
-                	 $('#result').fadeToggle('slow'); $('#result').fadeOut(5000); 
-                	 
-                    // reload data
-                	loadQuestions();
-                },
-                error : function() {
-                    console.log("Error!");
-                }
-            });
-        });
     </script>
 </body>
 </html>
