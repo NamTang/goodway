@@ -1,0 +1,64 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-6 col-12 mb-2">
+          <h3 class="content-header-title" th:text="#{question.screentitle}">Screen title</h3>
+   
+        </div>
+        <div class="content-header-right col-md-6 col-12">
+          <div class="media width-250 float-right">
+            <media-left class="media-middle">
+              <div id="sp-bar-total-sales"><canvas width="152" height="30" style="display: inline-block; width: 152px; height: 30px; vertical-align: top;"></canvas></div>
+            </media-left>
+            <div class="media-body media-right text-right">
+              <h3 class="m-0" th:title="#{question.total}">1234</h3>
+              <span class="text-muted" th:text="#{question.total.desc}">Description</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-body">
+        <!-- Basic form layout section start -->
+ 
+            <div class="content-body">
+               <section id="search-website" class="card overflow-hidden">
+                  <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title" th:text="#{question.newtitle}">Task title</h4>
+                        <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                    
+                        <div class="card-body pb-0">
+                            <div class="table-responsive scroll-container" style="padding-left: 110px">
+                                <form id="frmHot" th:action="@{/question/save}" method="POST" enctype="multipart/form-data" >
+                                    <div id="tableQuestion" class="hot handsontable htRowHeaders htColumnHeaders" ></div>
+                                    <div class="col-12">
+                                        
+                                        <button class="btn btn-info">
+                                            <i class="ft-save"></i>&nbsp;<span th:text="#{save}">Save</span>
+                                        </button>
+                                        <p id="resultSubmit"></p>
+        											<div id="result" class="alert alert-success mb-2 hidden-xs" role="alert" style="display: none">
+        												<strong th:text="#{save.ok}">Save OK</strong> 
+        											</div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </section>
+            </div>
+         <!-- // Basic form layout section end -->
+      </div>
+    </div>
+  </div>
